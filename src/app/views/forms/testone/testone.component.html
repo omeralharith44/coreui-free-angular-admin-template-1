@@ -1,0 +1,58 @@
+<c-row ngPreserveWhitespaces>
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header>
+        <strong>إضافة منشور جديد</strong>
+      </c-card-header>
+      <c-card-body>
+        <!-- <form cForm [formGroup]="PostForm" (ngSubmit)="postPost()"> -->
+        <form cForm [formGroup]="PostForm">   
+          <div class="mb-3">
+            <label cLabel for="exampleFormControlTextarea1">موضوع المنشور</label>
+            <input cFormControl
+            formControlName="title"
+            placeholder="نص موضوع المنشور"
+            type="text"
+            />
+          </div>
+          <div class="mb-3">
+            <label cLabel for="exampleFormControlTextarea1">نص الرسالة</label>
+            <textarea cFormControl formControlName="body" rows="3"></textarea>
+          </div>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a cButton color="secondary" routerLink="/forms/testone"  class="me-md-2" role="button">إلغاء</a>
+            <button cButton color="danger" type="button" class="me-md-2" (click)="deletePost()" *ngIf="postId != undefined">حذف</button>
+            <button cButton color="info" type="button" class="me-md-2" (click)="putPost()" *ngIf="postId != undefined">تعديل</button>
+            <button cButton color="success" type="button" class="me-md-2" (click)="patchPost()" *ngIf="postId != undefined">باتش</button>
+            <button cButton color="primary" type="button" (click)="postPost()"  *ngIf="postId == undefined">حفظ</button>
+          </div>
+        </form>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
+<c-card class="mb-4">
+  <c-card-header>
+    <strong>Test One Get Post</strong>
+  </c-card-header>
+  <c-card-body>
+    <h5 cCardTitle>{{onePost.title}}</h5>
+    <p cCardText>
+      {{onePost.body}}
+    </p>
+    <a [routerLink] cCardLink>{{onePost.id}}</a>
+    <a [routerLink] cCardLink>{{onePost.userId}}</a>
+  </c-card-body>
+</c-card>
+
+<c-card *ngFor="let post of posts" class="mb-4">
+  <c-card-body>
+    <h5 cCardTitle>{{post.title}}</h5>
+    <p cCardText>
+      {{post.body}}
+    </p>
+    <a routerLink="/forms/testone/{{post.id}}" class="me-md-2">تعديل</a>
+    <a routerLink="/forms/testone/{{post.id}}" class="me-md-2">حذف</a>
+  </c-card-body>
+</c-card>

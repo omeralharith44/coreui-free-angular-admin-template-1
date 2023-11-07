@@ -151,6 +151,14 @@ export const navItems: INavData[] = [
       {
         name: 'Validation',
         url: '/forms/validation'
+      },
+      {
+        name: 'Taqeem',
+        url: '/forms/taqeem'
+      },
+      {
+        name: 'TestOne',
+        url: '/forms/testone'
       }
     ]
   },

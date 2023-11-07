@@ -9,6 +9,8 @@ import { SelectComponent } from './select/select.component';
 import { ChecksRadiosComponent } from './checks-radios/checks-radios.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ValidationComponent } from './validation/validation.component';
+import { TaqeemComponent } from './taqeem/taqeem.component';
+import { TestoneComponent } from './testone/testone.component';
 
 const routes: Routes = [
   {
@@ -77,6 +79,24 @@ const routes: Routes = [
         data: {
           title: 'Validation'
         }
+      },
+      {
+        path: 'taqeem',
+        component: TaqeemComponent,
+        data: {
+          title: 'Taqeem'
+        }
+      },
+      {
+        path: 'testone',
+        component: TestoneComponent,
+        data: {
+          title: 'TestOne'
+        }
+      },
+      {
+        path: 'testone/:id',
+        component: TestoneComponent,
       }
     ]
   }

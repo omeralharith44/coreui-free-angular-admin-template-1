@@ -37,6 +37,8 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { PostServices } from './services/post';
+
 
 const APP_CONTAINERS = [
   DefaultFooterComponent,
@@ -72,15 +74,17 @@ const APP_CONTAINERS = [
     BadgeModule,
     ListGroupModule,
     CardModule,
-    NgScrollbarModule
+    NgScrollbarModule,
   ],
   providers: [
     {
       provide: LocationStrategy,
-      useClass: HashLocationStrategy
+      useClass: HashLocationStrategy,
+      
     },
     IconSetService,
-    Title
+    Title,
+    PostServices,
   ],
   bootstrap: [AppComponent]
 })
